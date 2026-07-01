@@ -1,10 +1,16 @@
-# TP — Supervision d'une infrastructure Citrix VDI avec Centreon sur Infomaniak OpenStack
+# TP : Supervision d'une infrastructure Citrix VDI avec Centreon sur Infomaniak OpenStack
 
 > **Auteur :** Alexandra ASSAGA  
 > **GitHub :** [aassaga21](https://github.com/aassaga21)  
 > **Date :** Juillet 2026  
 > **Durée estimée :** 2–3 jours  
 > **Tags :** `Terraform` `Citrix CVAD` `Centreon` `Infomaniak` `OpenStack` `Supervision` `VDI`
+
+---
+
+## Introduction
+
+Ce TP porte sur la mise en place d'une supervision applicative et infrastructure pour un environnement Citrix VDI (Delivery Controller, StoreFront, VDA) hébergé sur Infomaniak OpenStack. L'objectif est de déployer une chaîne de collecte Centreon (serveur central + poller) capable de remonter en temps réel l'état des composants Citrix via SNMP, WMI et NRPE, afin de garantir la disponibilité du service de bureau virtuel pour les utilisateurs finaux.
 
 ---
 
@@ -18,6 +24,8 @@
 ---
 
 ## Architecture cible
+
+![image](https://hackmd.io/_uploads/SkXWYLfXze.png)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -926,6 +934,11 @@ openstack floating ip list     # IPs libérées
 
 ---
 
+## Conclusion
+Ce TP a permis de construire une solution de supervision complète couvrant les trois couches critiques d'un environnement VDI : l'accès (StoreFront), l'orchestration des sessions (Delivery Controller) et l'exécution (VDA). L'intégration avec Centreon, hébergée sur la même infrastructure Infomaniak OpenStack, offre une visibilité centralisée via dashboards et alertes, réduisant le délai de détection d'incident. Cette architecture est extensible : ajout de sondes applicatives supplémentaires, seuils personnalisés par machine virtuelle, ou intégration future avec un système de notification (email, Slack) pour renforcer la réactivité opérationnelle.
+
+---
+
 ## Ressources
 
 - [Citrix CVAD 2402 LTSR — Documentation officielle](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops)
@@ -936,5 +949,3 @@ openstack floating ip list     # IPs libérées
 - [Cloudbase-Init Windows images QCOW2](https://cloudbase.it/windows-cloud-images/)
 
 ---
-
-*Documentation rédigée par Alexandra ASSAGA - Lab Citrix+Centreon sur Infomaniak OpenStack*
